@@ -25,3 +25,14 @@ export const getPlantsByMonth = async (month) => {
     return [];
   }
 };
+export const getPlantDetails = async (id) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/plants/${id}`, {
+      params: { token: API_KEY }
+    });
+    return response.data.data;
+  } catch (error) {
+    console.error('Error detalle planta:', error);
+    return null;
+  }
+  };
